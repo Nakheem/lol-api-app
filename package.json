@@ -1,5 +1,6 @@
 {
   "name": "lol-api-app",
+  "type" :"commonjs",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
@@ -107,8 +108,8 @@
     "yallist": "^4.0.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+    "start": "nodemon --experimental-modules --exec babel-node app.js"
+},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Nakheem/lol-api-app.git"
@@ -118,5 +119,11 @@
   "bugs": {
     "url": "https://github.com/Nakheem/lol-api-app/issues"
   },
-  "homepage": "https://github.com/Nakheem/lol-api-app#readme"
+  "homepage": "https://github.com/Nakheem/lol-api-app#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.22.10",
+    "@babel/core": "^7.22.11",
+    "@babel/node": "^7.22.10",
+    "@babel/preset-env": "^7.22.10"
+  }
 }
