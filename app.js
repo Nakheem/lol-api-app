@@ -30,10 +30,17 @@ app.get('/player/:summonerName', async (req, res) => {
       });
       const playerData = response.data;
       const puuid = playerData.puuid;
-      res.json(playerData);
+      const playerName = playerData.name;
+      const summonerLevel = playerData.summerLevel;
+      const profileIconId = playerData.profileIconId;
+      
       
       response = await axios.get(`https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids?start=0&count=20&api_key=${api_key}`)
       playerGames = response.data;
+
+      const playerInformation =[{ cat : "cat"}];
+      const playerInformationJson = JSON.stringify(playerInformation, null, 2);
+      res.json(playerInformationJson);
 
       for (games in playerGames){
         
