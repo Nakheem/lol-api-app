@@ -1,7 +1,10 @@
 const express = require("express");
+const serverless = require('serverless-http');
 const axios = require("axios");
 
 const app = express();
+
+const router =express.Router();
 
 app.use(express.json())
 
@@ -91,7 +94,7 @@ app.get('/player/:summonerName', async (req, res) => {
       profileIconId: profileIconId,
       game: z
     })
-    
+
     res.status(200).json({ data: data });
 
   } catch (error) {
@@ -99,3 +102,13 @@ app.get('/player/:summonerName', async (req, res) => {
     res.status(500).json({ error: 'An error occurred while fetching player data' });
   }
 });
+
+router.get('/', (req,res) => {
+  res.json({
+    'hello': 'hi'
+  });
+})
+
+app.use('/.netfly/functions/api', router);
+
+module.exports.handler =serverless(app);
