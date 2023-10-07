@@ -1,12 +1,15 @@
 const express = require("express");
 const serverless = require('serverless-http');
 const axios = require("axios");
+const cors = require('cors');
+
 
 const app = express();
 
 const router =express.Router();
 
-app.use(express.json())
+app.use(express.json());
+app.use(cors());
 
 //To-do move to env file
 const api_key = 'RGAPI-b502d60c-ff6e-40cc-a838-ebb8794f2363'
@@ -103,11 +106,6 @@ app.get('/player/:summonerName', async (req, res) => {
   }
 });
 
-router.get('/', (req,res) => {
-  res.json({
-    'hello': 'hi'
-  });
-})
 
 app.use('/.netfly/functions/api', router);
 

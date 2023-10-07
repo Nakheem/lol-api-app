@@ -26,6 +26,7 @@
     "content-type": "^1.0.5",
     "cookie": "^0.4.1",
     "cookie-signature": "^1.0.6",
+    "cors": "^2.8.5",
     "debug": "^3.1.0",
     "delayed-stream": "^1.0.0",
     "denque": "^2.1.0",
